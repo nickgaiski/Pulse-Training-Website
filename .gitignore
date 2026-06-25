@@ -1,0 +1,9 @@
+node_modules/
+.DS_Store
+.vercel
+*.log
+tools/raw/
+
+# dev screenshot scripts (hardcoded sandbox paths)
+tools/shoot.js
+tools/shoot-sections.js
