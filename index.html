@@ -50,12 +50,13 @@
   </script>
 </head>
 <body>
+  <a class="skip-link" href="#top">Skip to content</a>
 
   <!-- ============ HEADER ============ -->
   <header class="site-header" id="header">
     <div class="container nav">
       <a class="brand" href="#top" aria-label="Pulse Personal Training home">
-        <img src="assets/img/logo.png" alt="Pulse Personal Training">
+        <img src="assets/img/logo.png" alt="" width="650" height="320">
       </a>
       <nav class="nav-links" aria-label="Primary">
         <a href="#story">Our Story</a>
@@ -78,7 +79,7 @@
   </header>
 
   <!-- Mobile drawer -->
-  <div class="nav-drawer" id="navDrawer">
+  <div class="nav-drawer" id="navDrawer" role="dialog" aria-modal="true" aria-label="Site menu" aria-hidden="true">
     <div class="panel">
       <button class="close" id="navClose" aria-label="Close menu">
         <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg>
@@ -101,12 +102,12 @@
   <section class="hero">
     <div class="container hero-inner">
       <div class="hero-copy reveal">
-        <span class="hero-badge"><span class="stars">★★★★★</span> Trusted by Highland moms since 2007</span>
+        <span class="hero-badge"><span class="stars" aria-hidden="true">★★★★★</span><span class="sr-only">Five-star rated.</span> Trusted by Highland moms since 2007</span>
         <h1>Moms, are you tired of putting your health <span class="accent">last?</span></h1>
-        <p class="hero-sub">Let Pulse show you how to make yourself a priority — so your whole family can win.</p>
+        <p class="hero-sub">Pulse is Highland's personal-training studio for busy moms. We coach you through exercise, simple nutrition, and real accountability — so you finally make yourself a priority.</p>
         <div class="hero-cta">
           <a class="btn btn--lg" href="#contact">Book a Free Discovery Call</a>
-          <a class="btn btn--outline-light btn--lg" href="#results">See Real Results</a>
+          <a class="btn btn--outline-light" href="#results">See Real Results</a>
         </div>
         <p class="hero-note">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
@@ -120,14 +121,17 @@
       </div>
       <div class="hero-media reveal">
         <div class="frame">
-          <img src="assets/img/t-katrina.jpg" width="900" height="900" alt="A real Pulse client smiling confidently in the gym in Highland, IL" fetchpriority="high">
+          <picture>
+            <source srcset="assets/img/t-kelli.webp" type="image/webp">
+            <img src="assets/img/t-kelli.jpg" width="900" height="1476" alt="A confident, energized Pulse client enjoying life outdoors in Highland, IL" fetchpriority="high">
+          </picture>
         </div>
         <div class="float-card float-card--tl">
-          <span class="num">17</span>
-          <span class="lbl">Years coaching<br>Highland families</span>
+          <span class="num">2007</span>
+          <span class="lbl">Coaching Highland<br>moms since</span>
         </div>
         <div class="float-card float-card--br">
-          <span class="stars" style="color:var(--gold);font-size:1.1rem;letter-spacing:.05em">★★★★★</span>
+          <span class="stars" style="color:var(--star);font-size:1.1rem;letter-spacing:.05em" aria-hidden="true">★★★★★</span>
           <span class="lbl">Loved by local moms<br>just like you</span>
         </div>
       </div>
@@ -137,7 +141,7 @@
   <!-- ============ TRUST BAR ============ -->
   <div class="trustbar">
     <div class="container row">
-      <span class="item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 17 Years in Highland</span>
+      <span class="item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Coaching Highland Since 2007</span>
       <span class="dot"></span>
       <span class="item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> Locally Owned</span>
       <span class="dot"></span>
@@ -150,7 +154,7 @@
   </div>
 
   <!-- ============ EMPATHY / PROBLEM ============ -->
-  <section class="section" id="empathy">
+  <section class="section section--cream" id="empathy">
     <div class="container split">
       <div class="empathy-copy reveal">
         <span class="eyebrow">We get it</span>
@@ -188,7 +192,7 @@
         <div class="pain reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg><p>Not the role model you want to be</p></div>
         <div class="pain reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg><p>Hiding in the back of every photo</p></div>
         <div class="pain reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg><p>Confused about nutrition &amp; fad diets</p></div>
-        <div class="pain reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg><p>Can't keep up with your kids or grandkids</p></div>
+        <div class="pain reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg><p>Can't keep up with your kids</p></div>
         <div class="pain reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg><p>Scared to walk into a gym</p></div>
         <div class="pain reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg><p>Letting the scale decide your whole day</p></div>
         <div class="pain reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg><p>Stuck in the all-in / all-out cycle</p></div>
@@ -214,7 +218,7 @@
         <span class="eyebrow">Meet your guide</span>
         <h2 style="margin:.7rem 0 1rem">We're not just your coaches — we've been where you are</h2>
         <p>Pulse started back in 2007 when our founder, Jeff, began training his very first client: his own mom. A 55-year-old mother of three, she'd spent decades putting herself last for everyone else. One year later, she was in better shape at 55 than she'd been at 40.</p>
-        <p style="margin-top:1rem">Seventeen years later, the mission hasn't changed. We're a team of coaches who've lived this journey ourselves — and there's no better feeling than helping you become the very best version of yourself you may have lost along the way.</p>
+        <p style="margin-top:1rem">All these years later, the mission hasn't changed. We're a team of coaches who've lived this journey ourselves — and there's no better feeling than helping you become the very best version of yourself you may have lost along the way.</p>
         <div class="stat-row">
           <div class="stat"><div class="n">2007</div><div class="l">Serving Highland since</div></div>
           <div class="stat"><div class="n">3</div><div class="l">Coaches who've lived it</div></div>
@@ -235,7 +239,7 @@
         <span class="eyebrow light">The solution</span>
         <h2 style="margin:.7rem 0 1.1rem">The Mom Life Transformation</h2>
         <p style="color:#ffe2e1;font-size:1.12rem">When moms take control and make themselves a priority, the whole family wins. That's exactly why we built the Mom Life Transformation — a proven, sustainable strategy that gives you all the tools to become the healthy, confident mom you want to be.</p>
-        <p style="color:#ffd2d0;font-weight:600;font-size:1.15rem;margin-top:1.2rem">No fad diets. No more all-in / all-out. Just real change that lasts a lifetime.</p>
+        <p style="color:#ffffff;font-weight:600;font-size:1.15rem;margin-top:1.2rem">No fad diets. No more all-in / all-out. Just real change that lasts a lifetime.</p>
         <ul class="check-list">
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> A personalized exercise plan that fits your real life</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Simple, sustainable nutrition — no starvation, no guesswork</li>
@@ -246,8 +250,8 @@
       </div>
       <div class="media reveal">
         <picture>
-          <source srcset="assets/img/t-kelli.webp" type="image/webp">
-          <img src="assets/img/t-kelli.jpg" width="900" height="1476" loading="lazy" alt="A confident, energized Pulse client after her transformation">
+          <source srcset="assets/img/t-meredith.webp" type="image/webp">
+          <img src="assets/img/t-meredith.jpg" width="900" height="1200" loading="lazy" alt="A Pulse client embracing a healthy, sustainable lifestyle">
         </picture>
         <div class="program-tag">Sustainable<br><span>For Life</span></div>
       </div>
@@ -275,7 +279,7 @@
   </section>
 
   <!-- ============ PLAN ============ -->
-  <section class="section" id="plan">
+  <section class="section section--cream" id="plan">
     <div class="container">
       <div class="section-head reveal">
         <span class="eyebrow center">Your simple plan</span>
@@ -321,12 +325,12 @@
   </section>
 
   <!-- ============ RESULTS / WALL OF WINS ============ -->
-  <section class="section section--cream" id="results">
+  <section class="section" id="results">
     <div class="container">
       <div class="section-head reveal">
         <span class="eyebrow center">Real Highland clients</span>
         <h2 style="margin-top:.7rem">Real people. Real lives. Real results.</h2>
-        <p>These are real Pulse members from right here in Highland — moms (and a few dads) who decided to make themselves a priority.</p>
+        <p>These are real Pulse members from right here in Highland — moms who decided to make themselves a priority.</p>
       </div>
       <div class="results-grid">
         <article class="result-card lift reveal">
@@ -350,15 +354,15 @@
           <div class="body"><div class="label">Kim</div><p>Her words say it all: <em>"Not tired anymore!"</em> — more energy for everything and everyone she loves.</p></div>
         </article>
         <article class="result-card lift reveal">
-          <div class="ph"><span class="tag">Beat: Self-Doubt</span><img src="assets/img/t-meredith.jpg" width="900" height="1200" loading="lazy" alt="Meredith, a busy working mom and Pulse client"></div>
-          <div class="body"><div class="label">Meredith</div><p>This busy working mom learned there's no magic shortcut — <em>"you just have to put in the reps!"</em></p></div>
+          <div class="ph"><span class="tag">Beat: Self-Criticism</span><img src="assets/img/t-michelle.jpg" width="900" height="1200" loading="lazy" alt="Michelle, a Pulse client, enjoying an active life outdoors"></div>
+          <div class="body"><div class="label">Michelle</div><p>She was her own worst critic. Now she gives herself credit for her wins — and actually enjoys her success.</p></div>
         </article>
       </div>
     </div>
   </section>
 
   <!-- ============ TESTIMONIALS ============ -->
-  <section class="section" id="testimonials">
+  <section class="section section--cream" id="testimonials">
     <div class="container">
       <div class="section-head reveal">
         <span class="eyebrow center">In their own words</span>
@@ -366,15 +370,15 @@
       </div>
       <div class="tcards">
         <figure class="tcard lift reveal">
-          <div class="stars">★★★★★</div>
+          <div class="stars" aria-hidden="true">★★★★★</div><span class="sr-only">Rated 5 out of 5 stars.</span>
           <blockquote>"I am on a continuous journey that has now become my lifestyle. Now, this is who I am — who I wanted to be!"</blockquote>
           <figcaption class="by">
             <img src="assets/img/t-tiffany.jpg" width="50" height="50" loading="lazy" alt="Tiffany">
-            <span><span class="nm">Tiffany</span><span class="rl">All in or all out — for good</span></span>
+            <span><span class="nm">Tiffany</span><span class="rl">Now it's a lifestyle, not a phase</span></span>
           </figcaption>
         </figure>
         <figure class="tcard lift reveal">
-          <div class="stars">★★★★★</div>
+          <div class="stars" aria-hidden="true">★★★★★</div><span class="sr-only">Rated 5 out of 5 stars.</span>
           <blockquote>"I was hesitant — I felt like I 'knew what to do' and could 'do it on my own.' I'm so happy that I asked for help instead!"</blockquote>
           <figcaption class="by">
             <img src="assets/img/t-kelli.jpg" width="50" height="50" loading="lazy" alt="Kelli">
@@ -382,7 +386,7 @@
           </figcaption>
         </figure>
         <figure class="tcard lift reveal">
-          <div class="stars">★★★★★</div>
+          <div class="stars" aria-hidden="true">★★★★★</div><span class="sr-only">Rated 5 out of 5 stars.</span>
           <blockquote>"I never would have guessed that I'd actually enjoy working out. It's a new life that I absolutely LOVE. Trust the process!"</blockquote>
           <figcaption class="by">
             <img src="assets/img/t-jill.jpg" width="50" height="50" loading="lazy" alt="Jill">
@@ -390,7 +394,7 @@
           </figcaption>
         </figure>
         <figure class="tcard lift reveal">
-          <div class="stars">★★★★★</div>
+          <div class="stars" aria-hidden="true">★★★★★</div><span class="sr-only">Rated 5 out of 5 stars.</span>
           <blockquote>"A scale determining the outcome of my day now sounds ridiculous!"</blockquote>
           <figcaption class="by">
             <img src="assets/img/t-jamie.jpg" width="50" height="50" loading="lazy" alt="Jamie">
@@ -402,7 +406,7 @@
   </section>
 
   <!-- ============ TEAM ============ -->
-  <section class="section section--cream" id="team">
+  <section class="section" id="team">
     <div class="container">
       <div class="section-head reveal">
         <span class="eyebrow center">Your coaches</span>
@@ -442,6 +446,38 @@
     </div>
   </section>
 
+  <!-- ============ FAQ ============ -->
+  <section class="section section--cream" id="faq">
+    <div class="container faq-wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow center">Before you book</span>
+        <h2 style="margin-top:.7rem">Your questions, answered</h2>
+      </div>
+      <div class="faq-list reveal">
+        <details class="faq">
+          <summary>I'm a total beginner — is Pulse really for me?</summary>
+          <div class="faq-a"><p>Absolutely. Most of our clients start exactly where you are. Pulse is known as a welcoming place for beginners — we meet you at your level, with zero experience required.</p></div>
+        </details>
+        <details class="faq">
+          <summary>What actually happens on the free discovery call?</summary>
+          <div class="faq-a"><p>It's a relaxed, no-pressure conversation. We get to know you, listen to your goals, answer your questions, and figure out together whether Pulse is the right fit. No commitment and no hard sell — promise.</p></div>
+        </details>
+        <details class="faq">
+          <summary>I'm nervous about walking into a gym.</summary>
+          <div class="faq-a"><p>You're in good company — "gym-xiety" is one of the most common things we hear. Pulse is a friendly, judgment-free space, and your coach is right beside you every step of the way.</p></div>
+        </details>
+        <details class="faq">
+          <summary>Will I even have time for this as a busy mom?</summary>
+          <div class="faq-a"><p>We build your plan around your real life — not the other way around. Sustainable beats extreme every time, and your coach keeps it simple so it actually fits your week.</p></div>
+        </details>
+        <details class="faq">
+          <summary>Where are you located?</summary>
+          <div class="faq-a"><p>We're at 815 Broadway, right next to the square in downtown Highland, IL. Call or text us anytime at <a href="tel:+16187928250">618-792-8250</a>.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
   <!-- ============ FINAL CTA ============ -->
   <section class="section section--red" id="cta">
     <div class="container cta-band reveal">
@@ -461,7 +497,7 @@
   </section>
 
   <!-- ============ CONTACT ============ -->
-  <section class="section" id="contact">
+  <section class="section section--cream" id="contact">
     <div class="container contact">
       <div class="contact-left reveal">
         <span class="eyebrow">Get in touch</span>
@@ -496,25 +532,27 @@
 
       <div class="form-card reveal">
         <h3>Book your free discovery call</h3>
-        <p class="sub">Fill this out and we'll reach out within one business day. No pressure — just a friendly conversation about your goals.</p>
+        <p class="sub">Fill this out and we'll reach out within one business day. No pressure — just a friendly conversation about your goals. <span class="req-note">(<span class="req" aria-hidden="true">*</span> required)</span></p>
+        <p class="form-alt">Prefer to text? <a href="sms:+16187928250">Text us at 618-792-8250</a></p>
         <form id="leadForm" novalidate>
           <div class="form-row">
             <div class="field">
-              <label for="name">First name</label>
-              <input type="text" id="name" name="name" autocomplete="given-name" required>
+              <label for="name">First name <span class="req" aria-hidden="true">*</span></label>
+              <input type="text" id="name" name="firstName" autocomplete="given-name" required aria-required="true">
             </div>
             <div class="field">
-              <label for="phone">Phone</label>
-              <input type="tel" id="phone" name="phone" autocomplete="tel" required>
+              <label for="phone">Phone <span class="req" aria-hidden="true">*</span></label>
+              <input type="tel" id="phone" name="phone" autocomplete="tel" required aria-required="true">
             </div>
           </div>
           <div class="field">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" autocomplete="email" required>
+            <label for="email">Email <span class="opt">(optional)</span></label>
+            <input type="email" id="email" name="email" autocomplete="email">
           </div>
           <div class="field">
             <label for="goal">What's your #1 goal right now?</label>
             <select id="goal" name="goal">
+              <option value="" selected>Choose one…</option>
               <option value="Make myself a priority">Make myself a priority</option>
               <option value="Lose weight sustainably">Lose weight sustainably</option>
               <option value="More energy for my family">More energy for my family</option>
@@ -541,7 +579,7 @@
     <div class="container">
       <div class="footer-top">
         <div class="footer-brand">
-          <img src="assets/img/logo.png" alt="Pulse Personal Training">
+          <img src="assets/img/logo.png" alt="Pulse Personal Training" width="650" height="320">
           <p>Helping busy moms in Highland, IL make themselves a priority — through exercise, nutrition, and real accountability. Since 2007.</p>
           <div class="footer-social">
             <a href="https://www.facebook.com/" aria-label="Facebook" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0 0 22 12z"/></svg></a>

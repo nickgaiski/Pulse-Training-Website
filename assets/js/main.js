@@ -9,16 +9,18 @@
      https://formspree.io (or similar), then paste your endpoint URL below,
      e.g. "https://formspree.io/f/abcdwxyz".
      Until then, the form gracefully falls back to opening the visitor's email
-     app with everything pre-filled to jeff@pulse-training.com, so no lead is
-     ever lost.
+     app with everything pre-filled to jeff@pulse-training.com, plus a visible
+     backup with the phone number, so no lead is ever lost.
   ------------------------------------------------------------------------- */
   var FORM_ENDPOINT = '';                       // <-- paste Formspree (or similar) URL here
   var CONTACT_EMAIL = 'jeff@pulse-training.com';
+  var CONTACT_PHONE = '618-792-8250';
 
   var header = document.getElementById('header');
   var toggle = document.getElementById('navToggle');
   var drawer = document.getElementById('navDrawer');
-  var close = document.getElementById('navClose');
+  var closeBtn = document.getElementById('navClose');
+  var inertEls = [header, document.getElementById('top'), document.querySelector('.site-footer')];
 
   /* ---- Header solid-on-scroll ---- */
   function onScroll() {
@@ -28,25 +30,51 @@
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
-  /* ---- Mobile drawer ---- */
+  /* ---- Mobile drawer (accessible dialog) ---- */
+  function focusables() {
+    return drawer.querySelectorAll('a[href], button:not([disabled])');
+  }
+  function setInert(state) {
+    inertEls.forEach(function (el) {
+      if (!el) return;
+      if (state) { el.setAttribute('aria-hidden', 'true'); el.setAttribute('inert', ''); }
+      else { el.removeAttribute('aria-hidden'); el.removeAttribute('inert'); }
+    });
+  }
   function openDrawer() {
     drawer.classList.add('open');
+    drawer.setAttribute('aria-hidden', 'false');
     toggle.setAttribute('aria-expanded', 'true');
     document.body.style.overflow = 'hidden';
+    setInert(true);
+    if (closeBtn) closeBtn.focus();
   }
   function closeDrawer() {
+    if (!drawer.classList.contains('open')) return;
     drawer.classList.remove('open');
+    drawer.setAttribute('aria-hidden', 'true');
     toggle.setAttribute('aria-expanded', 'false');
     document.body.style.overflow = '';
+    setInert(false);
+    toggle.focus();
   }
   if (toggle) toggle.addEventListener('click', openDrawer);
-  if (close) close.addEventListener('click', closeDrawer);
+  if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
   if (drawer) {
     drawer.addEventListener('click', function (e) {
       if (e.target === drawer) closeDrawer();
     });
     drawer.querySelectorAll('a').forEach(function (a) {
       a.addEventListener('click', closeDrawer);
+    });
+    // Focus trap
+    drawer.addEventListener('keydown', function (e) {
+      if (e.key !== 'Tab') return;
+      var f = focusables();
+      if (!f.length) return;
+      var first = f[0], last = f[f.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
     });
   }
   document.addEventListener('keydown', function (e) {
@@ -76,11 +104,22 @@
   /* ---- Lead form ---- */
   var form = document.getElementById('leadForm');
   var statusEl = document.getElementById('formStatus');
+  var $ = function (id) { return document.getElementById(id); };
 
   function setStatus(msg, ok) {
     if (!statusEl) return;
-    statusEl.textContent = msg;
+    statusEl.innerHTML = msg;
     statusEl.className = 'form-status ' + (ok ? 'ok' : 'err');
+  }
+
+  function readForm() {
+    return {
+      name: $('name').value.trim(),
+      phone: $('phone').value.trim(),
+      email: $('email').value.trim(),
+      goal: $('goal').value,
+      message: $('message').value.trim()
+    };
   }
 
   function mailtoFallback(data) {
@@ -96,26 +135,28 @@
       '&body=' + encodeURIComponent(body);
   }
 
+  var backupMsg = "If your email app didn't open, just call or text us at " +
+    '<a href="tel:+16187928250">' + CONTACT_PHONE + '</a>' +
+    ' or email <a href="mailto:' + CONTACT_EMAIL + '">' + CONTACT_EMAIL + '</a>.';
+
   if (form) {
     form.addEventListener('submit', function (e) {
       e.preventDefault();
+      // clear prior field errors
+      form.querySelectorAll('[aria-invalid="true"]').forEach(function (el) { el.removeAttribute('aria-invalid'); });
       if (!form.checkValidity()) {
-        form.reportValidity();
+        var firstInvalid = form.querySelector(':invalid');
+        if (firstInvalid) { firstInvalid.setAttribute('aria-invalid', 'true'); firstInvalid.focus(); }
+        setStatus('Please fill in the highlighted fields so we can reach you.', false);
         return;
       }
-      var data = {
-        name: form.name.value.trim(),
-        phone: form.phone.value.trim(),
-        email: form.email.value.trim(),
-        goal: form.goal.value,
-        message: form.message.value.trim()
-      };
+      var data = readForm();
       var btn = form.querySelector('button[type="submit"]');
       var original = btn.textContent;
 
       if (!FORM_ENDPOINT) {
-        // No backend configured yet — open email app pre-filled.
-        setStatus('Opening your email app so you can hit send…', true);
+        // No backend configured yet — open email app pre-filled, then show a backup.
+        setStatus('Opening your email app so you can hit send… <br>' + backupMsg, true);
         mailtoFallback(data);
         return;
       }
@@ -131,11 +172,11 @@
           form.reset();
           setStatus("Thank you! We'll reach out within one business day. 🎉", true);
         } else {
-          setStatus('Something went wrong. Please call or text us at 618-792-8250.', false);
+          setStatus('Something went wrong. ' + backupMsg, false);
           mailtoFallback(data);
         }
       }).catch(function () {
-        setStatus('Network issue — opening your email app instead.', false);
+        setStatus('Network issue. ' + backupMsg, false);
         mailtoFallback(data);
       }).finally(function () {
         btn.disabled = false;
