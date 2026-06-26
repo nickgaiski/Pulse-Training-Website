@@ -41,10 +41,20 @@ async function processPhoto({ src, base, width }) {
   const input = path.join(RAW, src);
   if (!fs.existsSync(input)) { console.warn('MISSING', src); return; }
   const pipeline = sharp(input).rotate().resize({ width, withoutEnlargement: true });
-  await pipeline.clone().webp({ quality: 80 }).toFile(path.join(OUT, `${base}.webp`));
-  await pipeline.clone().jpeg({ quality: 82, mozjpeg: true }).toFile(path.join(OUT, `${base}.jpg`));
-  const w = fs.statSync(path.join(OUT, `${base}.webp`)).size;
-  console.log(`${base.padEnd(16)} webp ${(w/1024).toFixed(0)}KB`);
+  const webpPath = path.join(OUT, `${base}.webp`);
+  const jpgPath = path.join(OUT, `${base}.jpg`);
+  await pipeline.clone().jpeg({ quality: 80, mozjpeg: true }).toFile(jpgPath);
+  // Encode WebP and, if it somehow lands larger than the JPEG, step quality down
+  // so the <source webp> is always the lighter asset (it never should be bigger).
+  let q = 68;
+  await pipeline.clone().webp({ quality: q }).toFile(webpPath);
+  while (fs.statSync(webpPath).size >= fs.statSync(jpgPath).size && q > 50) {
+    q -= 6;
+    await pipeline.clone().webp({ quality: q }).toFile(webpPath);
+  }
+  const w = fs.statSync(webpPath).size, j = fs.statSync(jpgPath).size;
+  const flag = w >= j ? '  ⚠ webp>=jpg' : '';
+  console.log(`${base.padEnd(16)} webp ${(w/1024).toFixed(0)}KB (q${q}) / jpg ${(j/1024).toFixed(0)}KB${flag}`);
 }
 
 async function processQuote(name) {
