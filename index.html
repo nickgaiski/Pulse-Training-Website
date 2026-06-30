@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>document.documentElement.classList.add('js')</script>
   <title>Personal Trainer in Highland, IL for Busy Moms | Pulse Personal Training</title>
   <meta name="description" content="Pulse Personal Training is a personal trainer in Highland, IL for busy moms. Get strong, confident, and energized with exercise, simple nutrition, and real accountability. Book your free discovery call.">
   <meta name="theme-color" content="#e11b22">
@@ -30,7 +31,7 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,400..560&family=Inter:wght@400;500;600;700&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
 
   <link rel="preload" as="image" href="assets/img/t-kelli.webp" type="image/webp" fetchpriority="high">
   <link rel="stylesheet" href="assets/css/styles.css">
@@ -92,17 +93,19 @@
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [
-      { "@type": "Question", "name": "I'm a total beginner — is Pulse really for me?", "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. Most of our clients start exactly where you are. Pulse is known as a welcoming place for beginners — we meet you at your level, with zero experience required." } },
-      { "@type": "Question", "name": "What actually happens on the free discovery call?", "acceptedAnswer": { "@type": "Answer", "text": "It's a relaxed, no-pressure conversation. We get to know you, listen to your goals, answer your questions, and figure out together whether Pulse is the right fit. No commitment and no hard sell — promise." } },
-      { "@type": "Question", "name": "I'm nervous about walking into a gym.", "acceptedAnswer": { "@type": "Answer", "text": "You're in good company — gym-xiety is one of the most common things we hear. Pulse is a friendly, judgment-free space, and your coach is right beside you every step of the way." } },
-      { "@type": "Question", "name": "Will I even have time for this as a busy mom?", "acceptedAnswer": { "@type": "Answer", "text": "We build your plan around your real life — not the other way around. Sustainable beats extreme every time, and your coach keeps it simple so it actually fits your week." } },
-      { "@type": "Question", "name": "Where are you located?", "acceptedAnswer": { "@type": "Answer", "text": "We're at 815 Broadway, right next to the square in downtown Highland, IL. Call or text us anytime at 618-792-8250." } }
+      { "@type": "Question", "name": "I haven't worked out in years. Am I too out of shape to start?", "acceptedAnswer": { "@type": "Answer", "text": "Nope. Most of our moms start exactly there. We meet you where you are and build up slowly — no judgment, ever." } },
+      { "@type": "Question", "name": "I'm so busy already. Do I really have time for this?", "acceptedAnswer": { "@type": "Answer", "text": "We build your plan around your life, not the other way around. Most moms are surprised how doable it actually is." } },
+      { "@type": "Question", "name": "I've tried diets before and always quit. How is this different?", "acceptedAnswer": { "@type": "Answer", "text": "No crash diets here. Just simple, steady changes and a coach who keeps you going — so it actually sticks this time." } },
+      { "@type": "Question", "name": "Will I feel out of place at a gym?", "acceptedAnswer": { "@type": "Answer", "text": "Not at Pulse. We're a small, judgment-free studio built for beginners and busy moms — not for showing off." } },
+      { "@type": "Question", "name": "What happens on the free discovery call?", "acceptedAnswer": { "@type": "Answer", "text": "We just talk — about you, your goals, and whether we're a good fit. No pressure, no sales pitch, no obligation." } }
     ]
   }
   </script>
 </head>
 <body>
   <a class="skip-link" href="#top">Skip to content</a>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="scroll-progress" id="progress" aria-hidden="true"></div>
 
   <!-- ============ HEADER ============ -->
   <header class="site-header" id="header">
@@ -152,18 +155,26 @@
   <!-- ============ HERO ============ -->
   <main id="top">
   <section class="hero">
+    <div class="hero-ekg" aria-hidden="true">
+      <svg class="ekg" viewBox="0 0 1440 120" preserveAspectRatio="none">
+        <path class="track" d="M0 60 H560 l22 -42 20 80 16 -64 18 40 14 -14 H1440"/>
+        <path class="blip" d="M0 60 H560 l22 -42 20 80 16 -64 18 40 14 -14 H1440"/>
+      </svg>
+    </div>
     <div class="container hero-inner">
       <div class="hero-copy">
-        <span class="hero-badge"><span class="stars" aria-hidden="true">★★★★★</span><span class="sr-only">Five-star rated.</span> Trusted by Highland moms since 2007</span>
-        <h1>Moms, are you tired of putting your health <span class="accent">last?</span></h1>
-        <p class="hero-sub">Pulse is Highland's personal-training studio for busy moms — coaching you through exercise, simple nutrition, and real accountability so you feel strong, confident, and fully present for the people who need you most.</p>
+        <span class="hero-badge"><span class="stars" aria-hidden="true">★★★★★</span><span class="sr-only">Five-star rated.</span> Highland's studio for busy moms · since 2007</span>
+        <h1>You've taken care of everyone else. <span class="accent">It's your turn now.</span></h1>
+        <p class="hero-sub">At Pulse Personal Training, we help busy moms get strong, energized, and confident again — with simple workouts, easy nutrition, and a coach in your corner. No crash diets. No judgment. No gym-timidation.</p>
         <div class="hero-cta">
-          <a class="btn btn--lg" href="#contact">Book a Free Discovery Call</a>
-          <a class="btn btn--outline-light" href="#results">See Real Results</a>
+          <a class="btn btn--lg" href="#contact">Book My Free Discovery Call</a>
+          <a class="text-link" href="#results">See real mom stories
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
         </div>
         <p class="hero-note">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-          Free &amp; no-pressure &middot; Beginner-friendly &middot; Right by the square in Highland
+          Free, friendly, and zero pressure — just a conversation about you.
         </p>
         <div class="hero-pillars">
           <span class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6.5 6.5 11 11"/><path d="m21 21-1-1"/><path d="m3 3 1 1"/><path d="m18 22 4-4"/><path d="m2 6 4-4"/><path d="m3 10 7-7"/><path d="m14 21 7-7"/></svg> Exercise</span>
@@ -190,6 +201,18 @@
     </div>
   </section>
 
+  <!-- ============ MARQUEE ============ -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee__track" id="marqueeTrack">
+      <span>You're not lazy. You're exhausted.</span><i class="dot"></i>
+      <span>Mom matters too.</span><i class="dot"></i>
+      <span>Small steps beat perfect — every time.</span><i class="dot"></i>
+      <span>No crash diets. No judgment. No gym-timidation.</span><i class="dot"></i>
+      <span>It's never too late.</span><i class="dot"></i>
+      <span>Put yourself back on the list.</span><i class="dot"></i>
+    </div>
+  </div>
+
   <!-- ============ TRUST BAR ============ -->
   <div class="trustbar">
     <div class="container row">
@@ -209,9 +232,9 @@
   <section class="section section--cream" id="empathy">
     <div class="container split">
       <div class="empathy-copy reveal">
-        <span class="eyebrow">We get it</span>
-        <h2 style="margin:.7rem 0 1.1rem">We understand how hard it is to make yourself a priority</h2>
-        <p class="lead">Between everyone else's needs, there's barely a minute left for you.</p>
+        <span class="eyebrow">We see you</span>
+        <h2 style="margin:.8rem 0 1.1rem">You're not lazy.<br>You're <em>exhausted</em>.</h2>
+        <p class="lead">You've been holding it all together for years — the kids, the house, the schedule, the everyone-else.</p>
         <ul class="problem-list">
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/></svg> Hustling the kids around</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/></svg> Working full time</li>
@@ -220,8 +243,8 @@
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/></svg> Cleaning the house</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/></svg> &hellip;and everything else</li>
         </ul>
-        <p class="never-stops">Mom life never stops.</p>
-        <p style="margin-top:1.1rem;font-size:1.08rem;color:var(--charcoal)">Somewhere in the middle of it all, you slipped to the bottom of your own list. Here's the truth: taking yourself off the bottom isn't selfish — it's how you keep showing up for everyone who's counting on you.</p>
+        <p class="never-stops">Somewhere in there, you fell to the bottom of the list.</p>
+        <p style="margin-top:1.1rem;font-size:1.08rem;color:var(--charcoal)">You're not behind because you don't care. You're behind because you've been busy taking care of everybody but you. That stops here — and you don't have to figure it out alone.</p>
       </div>
       <div class="media reveal">
         <picture>
@@ -236,9 +259,9 @@
   <section class="section section--ink" id="stakes">
     <div class="container">
       <div class="section-head reveal">
-        <span class="eyebrow center light">Sound familiar?</span>
-        <h2 style="margin-top:.7rem">You feel like you've tried every program out there</h2>
-        <p>If any of these hit a little too close to home, you're in exactly the right place.</p>
+        <span class="eyebrow center light">The real problem</span>
+        <h2 style="margin-top:.7rem">It's not you. It's the <em>all-or-nothing trap</em>.</h2>
+        <p>The crash diet. The punishing plan. The "I'll start Monday" that fizzles by Friday. None of it stuck — because none of it was built for a real mom's real life.</p>
       </div>
       <div class="pain-grid">
         <div class="pain reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg><p>Sick of feeling uncomfortable in your own skin</p></div>
@@ -252,8 +275,8 @@
         <div class="pain reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg><p>Feeling guilty for making yourself a priority</p></div>
       </div>
       <div class="not-alone reveal">
-        <h3>You are not alone.</h3>
-        <p>And every year you wait, the quiet cost grows — less energy for your kids, less confidence in your own skin, and a little more of you lost in the shuffle. The good news: it doesn't have to be this way, and you don't have to figure it out by yourself.</p>
+        <h3>It was never about willpower.</h3>
+        <p>Small steps — taken with someone in your corner — beat "perfect" every single time. The only thing that truly doesn't work is waiting another year. Let's change that, together.</p>
       </div>
     </div>
   </section>
@@ -268,14 +291,14 @@
         </picture>
       </div>
       <div class="story-copy reveal">
-        <span class="eyebrow">Meet your guide</span>
-        <h2 style="margin:.7rem 0 1rem">We're not just your coaches — we've been where you are</h2>
-        <p>Pulse started back in 2007 when our founder, Jeff, began training his very first client: his own mom. A 55-year-old mother of three, she'd spent decades putting herself last for everyone else. One year later, she was in better shape at 55 than she'd been at 40.</p>
-        <p style="margin-top:1rem">All these years later, the mission hasn't changed. We're a team of coaches who've lived this journey ourselves — and there's no better feeling than helping you become the very best version of yourself you may have lost along the way.</p>
+        <span class="eyebrow">Why Pulse exists</span>
+        <h2 style="margin:.7rem 0 1rem">It started with a mom who always put herself last.</h2>
+        <p>In 2007, Jeff Weinacht started Pulse by training one person — his own mom. She was 55, a mother of three, and she'd spent her whole life taking care of everyone but herself. One year later, she was in better shape at 55 than she'd been at 40.</p>
+        <p style="margin-top:1rem">That's the whole idea behind Pulse. We're not a bro-gym. We're a personal-training studio in Highland, IL built for moms who've been putting themselves last — coached by people who've walked it themselves.</p>
         <div class="stat-row">
           <div class="stat"><div class="n">2007</div><div class="l">Serving Highland since</div></div>
-          <div class="stat"><div class="n">3</div><div class="l">Coaches who've lived it</div></div>
-          <div class="stat"><div class="n">75 lbs</div><div class="l">Coach Tina's own journey</div></div>
+          <div class="stat"><div class="n" data-count="3">3</div><div class="l">Coaches who've lived it</div></div>
+          <div class="stat"><div class="n" data-count="75" data-suffix=" lbs">75 lbs</div><div class="l">Coach Tina's journey</div></div>
         </div>
         <blockquote class="founder-quote">
           "There's no better feeling than seeing someone become the very best version of themselves."
@@ -285,21 +308,31 @@
     </div>
   </section>
 
+  <!-- ============ MANIFESTO ============ -->
+  <section class="manifesto">
+    <div class="container reveal">
+      <p class="kicker">Mom matters too</p>
+      <blockquote>You take care of everyone.<br><span class="hl">It's time someone took care of you.</span></blockquote>
+      <p class="sig">— The coaches at Pulse, Highland, IL</p>
+    </div>
+  </section>
+
   <!-- ============ PROGRAM (Mom Life Transformation) ============ -->
   <section class="section section--red" id="program">
     <div class="container program">
       <div class="program-copy reveal">
-        <span class="eyebrow light">The solution</span>
+        <span class="eyebrow light">Built for you</span>
         <h2 style="margin:.7rem 0 1.1rem">The Mom Life Transformation</h2>
-        <p style="color:#ffe2e1;font-size:1.12rem">When moms take control and make themselves a priority, the whole family wins. That's exactly why we built the Mom Life Transformation — a proven, sustainable strategy that gives you all the tools to become the healthy, confident mom you want to be.</p>
-        <p style="color:#ffffff;font-weight:600;font-size:1.15rem;margin-top:1.2rem">No fad diets. No more all-in / all-out. Just real change that lasts a lifetime.</p>
+        <p style="color:#ffe2de;font-size:1.14rem">Our signature program, made for the mom who's ready to put herself back on the list. It's built on three simple things that actually work together: <strong style="color:#fff">exercise, easy nutrition, and real one-on-one accountability</strong>.</p>
+        <p style="color:#ffffff;font-weight:600;font-size:1.15rem;margin-top:1.2rem">No fad diets. No all-or-nothing. Just steady progress you can actually keep.</p>
         <ul class="check-list">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> A personalized exercise plan that fits your real life</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Simple, sustainable nutrition — no starvation, no guesswork</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> 1-on-1 accountability so you actually follow through</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Mindset &amp; habit coaching for results that stick</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> A coach in your corner who knows your name, your goals, and where you are each week</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Workouts built for real life — beginner-friendly and doable, not sore-and-quit</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Simple nutrition that fits a busy family — no crash diets, no weird rules</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> One-on-one accountability — the secret ingredient most programs skip</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> A judgment-free studio — no gym-xiety, just support</li>
         </ul>
-        <a class="btn btn--white btn--lg" href="#contact">Book a Free Discovery Call</a>
+        <a class="btn btn--white btn--lg" href="#contact">Book My Free Discovery Call</a>
       </div>
       <div class="media reveal">
         <picture>
@@ -315,8 +348,8 @@
   <section class="section section--ink" id="imagine">
     <div class="container">
       <div class="section-head reveal">
-        <span class="eyebrow center light">Imagine six months from now</span>
-        <h2 style="margin-top:.7rem">Together, we'll build a lifestyle that lasts forever</h2>
+        <span class="eyebrow center light">Picture this</span>
+        <h2 style="margin-top:.7rem">Imagine having your energy <em>back</em>.</h2>
       </div>
       <ul class="success-grid reveal">
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Gain real confidence</li>
@@ -328,7 +361,7 @@
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Finally make yourself a priority</li>
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Actually enjoy walking into the gym</li>
       </ul>
-      <p class="reveal" style="text-align:center;max-width:680px;margin:2.2rem auto 0;color:#cdd2d9;font-size:1.14rem">That strong, energized, sure-of-herself mom isn't someone else. She's <strong style="color:#fff">you</strong> — and we'll help you become her again.</p>
+      <p class="success-close reveal">Best of all, your kids get to watch you take care of yourself. That strong, energized mom isn't someone else — <strong>she's you</strong>. Let's go get her.</p>
     </div>
   </section>
 
@@ -336,25 +369,25 @@
   <section class="section section--cream" id="plan">
     <div class="container">
       <div class="section-head reveal">
-        <span class="eyebrow center">Your simple plan</span>
-        <h2 style="margin-top:.7rem">Getting started is easy</h2>
-        <p>No overwhelm, no complicated sign-up. Just three simple steps.</p>
+        <span class="eyebrow center">How it works</span>
+        <h2 style="margin-top:.7rem">Three simple steps. No guesswork.</h2>
+        <p>No overwhelm, no complicated sign-up — just one small step to start.</p>
       </div>
       <div class="steps">
-        <div class="step lift reveal">
+        <div class="step lift reveal" data-delay="1">
           <div class="badge">1</div>
-          <h3>Book your free call</h3>
-          <p>Reach out for a free, no-pressure discovery call. We'll get to know you and your goals.</p>
+          <h3>Book your discovery call</h3>
+          <p>A free, no-pressure chat — just you and a coach, talking about your goals.</p>
         </div>
-        <div class="step lift reveal">
+        <div class="step lift reveal" data-delay="2">
           <div class="badge">2</div>
-          <h3>Meet with your coach</h3>
-          <p>Sit down with a coach who listens and builds a simple plan around your real, busy life.</p>
+          <h3>Get your simple plan</h3>
+          <p>We build your workouts and easy nutrition around your real, busy life.</p>
         </div>
-        <div class="step lift reveal">
+        <div class="step lift reveal" data-delay="3">
           <div class="badge">3</div>
-          <h3>Start your transformation</h3>
-          <p>Show up, follow your plan, and let us handle the rest — with accountability every step.</p>
+          <h3>Show up &amp; get strong</h3>
+          <p>We coach you one-on-one and keep you going — week after week, win after win.</p>
         </div>
       </div>
 
@@ -382,10 +415,15 @@
   <section class="section" id="results">
     <div class="container">
       <div class="section-head reveal">
-        <span class="eyebrow center">Real Highland clients</span>
-        <h2 style="margin-top:.7rem">Real people. Real lives. Real results.</h2>
-        <p>These are real Pulse members from right here in Highland — moms who decided to make themselves a priority.</p>
+        <span class="eyebrow center">Real moms, real results</span>
+        <h2 style="margin-top:.7rem">She was right where you are now.</h2>
+        <p>Every woman here started with the same doubts — too busy, too out of shape, too unsure it would work. Then she took one small step. Meet a few of the Highland moms who put themselves back on the list.</p>
       </div>
+      <figure class="pullquote reveal">
+        <span class="mark" aria-hidden="true">&ldquo;</span>
+        <blockquote>I'm on a continuous journey that's now just my lifestyle. This is who I am &mdash; who I always wanted to be.</blockquote>
+        <figcaption class="by">&mdash; <b>Tiffany</b>, Pulse member</figcaption>
+      </figure>
       <div class="results-grid">
         <article class="result-card lift reveal">
           <div class="ph"><span class="tag">Beat: Gym-xiety</span><picture><source srcset="assets/img/t-gina.webp" type="image/webp"><img src="assets/img/t-gina.jpg" width="900" height="755" loading="lazy" alt="Gina, a Pulse client, before and after"></picture></div>
@@ -419,16 +457,16 @@
   <section class="section section--cream" id="testimonials">
     <div class="container">
       <div class="section-head reveal">
-        <span class="eyebrow center">In their own words</span>
-        <h2 style="margin-top:.7rem">Don't just take our word for it</h2>
+        <span class="eyebrow center">In their words</span>
+        <h2 style="margin-top:.7rem">Don't just take our word for it.</h2>
       </div>
       <div class="tcards">
         <figure class="tcard lift reveal">
           <div class="stars" aria-hidden="true">★★★★★</div><span class="sr-only">Rated 5 out of 5 stars.</span>
-          <blockquote>"I am on a continuous journey that has now become my lifestyle. Now, this is who I am — who I wanted to be!"</blockquote>
+          <blockquote>"There's no magical, overnight fix — you just have to put in the reps. They make that part feel doable."</blockquote>
           <figcaption class="by">
-            <img src="assets/img/t-tiffany.jpg" width="50" height="50" loading="lazy" alt="Tiffany">
-            <span><span class="nm">Tiffany</span><span class="rl">Now it's a lifestyle, not a phase</span></span>
+            <img src="assets/img/t-meredith.jpg" width="50" height="50" loading="lazy" alt="Meredith">
+            <span><span class="nm">Meredith</span><span class="rl">Busy working mom</span></span>
           </figcaption>
         </figure>
         <figure class="tcard lift reveal">
@@ -504,29 +542,29 @@
   <section class="section section--cream" id="faq">
     <div class="container faq-wrap">
       <div class="section-head reveal">
-        <span class="eyebrow center">Before you book</span>
-        <h2 style="margin-top:.7rem">Your questions, answered</h2>
+        <span class="eyebrow center">You're probably wondering</span>
+        <h2 style="margin-top:.7rem">Good questions. Honest answers.</h2>
       </div>
       <div class="faq-list reveal">
         <details class="faq">
-          <summary>I'm a total beginner — is Pulse really for me?</summary>
-          <div class="faq-a"><p>Absolutely. Most of our clients start exactly where you are. Pulse is known as a welcoming place for beginners — we meet you at your level, with zero experience required.</p></div>
+          <summary>I haven't worked out in years. Am I too out of shape to start?</summary>
+          <div class="faq-a"><p>Nope. Most of our moms start exactly there. We meet you where you are and build up slowly — no judgment, ever.</p></div>
         </details>
         <details class="faq">
-          <summary>What actually happens on the free discovery call?</summary>
-          <div class="faq-a"><p>It's a relaxed, no-pressure conversation. We get to know you, listen to your goals, answer your questions, and figure out together whether Pulse is the right fit. No commitment and no hard sell — promise.</p></div>
+          <summary>I'm so busy already. Do I really have time for this?</summary>
+          <div class="faq-a"><p>We build your plan around your life, not the other way around. Most moms are surprised how doable it actually is.</p></div>
         </details>
         <details class="faq">
-          <summary>I'm nervous about walking into a gym.</summary>
-          <div class="faq-a"><p>You're in good company — "gym-xiety" is one of the most common things we hear. Pulse is a friendly, judgment-free space, and your coach is right beside you every step of the way.</p></div>
+          <summary>I've tried diets before and always quit. How is this different?</summary>
+          <div class="faq-a"><p>No crash diets here. Just simple, steady changes and a coach who keeps you going — so it actually sticks this time.</p></div>
         </details>
         <details class="faq">
-          <summary>Will I even have time for this as a busy mom?</summary>
-          <div class="faq-a"><p>We build your plan around your real life — not the other way around. Sustainable beats extreme every time, and your coach keeps it simple so it actually fits your week.</p></div>
+          <summary>Will I feel out of place at a gym?</summary>
+          <div class="faq-a"><p>Not at Pulse. We're a small, judgment-free studio built for beginners and busy moms — not for showing off. Find us at 815 Broadway, right by the square in Highland.</p></div>
         </details>
         <details class="faq">
-          <summary>Where are you located?</summary>
-          <div class="faq-a"><p>We're at 815 Broadway, right next to the square in downtown Highland, IL. Call or text us anytime at <a href="tel:+16187928250">618-792-8250</a>.</p></div>
+          <summary>What happens on the free discovery call?</summary>
+          <div class="faq-a"><p>We just talk — about you, your goals, and whether we're a good fit. No pressure, no sales pitch, no obligation. Call or text <a href="tel:+16187928250">618-792-8250</a> to set one up.</p></div>
         </details>
       </div>
     </div>
@@ -535,17 +573,17 @@
   <!-- ============ FINAL CTA ============ -->
   <section class="section section--red" id="cta">
     <div class="container cta-band reveal">
-      <span class="eyebrow center light">Your turn</span>
-      <h2 style="margin-top:.7rem">Make yourself a priority — your whole family wins</h2>
-      <p>You take care of everyone else. Let's build a plan that finally takes care of you. Book your free discovery call today — no pressure, no commitment.</p>
+      <span class="eyebrow center light">Your turn starts here</span>
+      <h2 style="margin-top:.7rem">You've waited long enough. <span class="accent">Let's start.</span></h2>
+      <p>You don't need another Monday, another diet, or another "someday." You need one simple step — and a coach who's got you. This is the year you finally feel like yourself again.</p>
       <div class="cta-actions">
-        <a class="btn btn--white btn--lg" href="#contact">Book a Free Discovery Call</a>
+        <a class="btn btn--white btn--lg" href="#contact">Book My Free Discovery Call</a>
         <a class="btn btn--outline-light btn--lg" href="tel:+16187928250">Or call 618-792-8250</a>
       </div>
       <div class="cta-mini-steps">
-        <span class="m"><b>1</b> Book your free call</span>
-        <span class="m"><b>2</b> Meet your coach</span>
-        <span class="m"><b>3</b> Start your transformation</span>
+        <span class="m"><b>1</b> Book your call</span>
+        <span class="m"><b>2</b> Get your plan</span>
+        <span class="m"><b>3</b> Get strong</span>
       </div>
     </div>
   </section>

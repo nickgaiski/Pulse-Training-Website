@@ -22,13 +22,48 @@
   var closeBtn = document.getElementById('navClose');
   var inertEls = [header, document.getElementById('top'), document.querySelector('.site-footer')];
 
-  /* ---- Header solid-on-scroll ---- */
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var progress = document.getElementById('progress');
+  var heroImg = document.querySelector('.hero-media .frame img');
+  var ticking = false;
+
+  /* ---- Header state + scroll progress + hero parallax ---- */
   function onScroll() {
-    if (window.scrollY > 30) header.classList.add('scrolled');
-    else header.classList.remove('scrolled');
+    var y = window.scrollY;
+    if (y > 30) header.classList.add('scrolled'); else header.classList.remove('scrolled');
+    if (progress) {
+      var h = document.documentElement.scrollHeight - window.innerHeight;
+      progress.style.width = (h > 0 ? Math.min(100, (y / h) * 100) : 0) + '%';
+    }
+    if (heroImg && !reduceMotion && y < 900) {
+      heroImg.style.transform = 'translateY(' + (y * 0.12) + 'px) scale(1.09)';
+    }
+    ticking = false;
   }
-  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('scroll', function () {
+    if (!ticking) { window.requestAnimationFrame(onScroll); ticking = true; }
+  }, { passive: true });
   onScroll();
+
+  /* ---- Seamless marquee (duplicate track so it loops) ---- */
+  var mq = document.getElementById('marqueeTrack');
+  if (mq && !reduceMotion) { mq.innerHTML += mq.innerHTML; }
+
+  /* ---- Count-up stats (elements with data-count) ---- */
+  function countUp(el) {
+    var target = parseFloat(el.getAttribute('data-count'));
+    var suffix = el.getAttribute('data-suffix') || '';
+    if (reduceMotion) { el.textContent = target + suffix; return; }
+    var start = null, dur = 1400;
+    function step(t) {
+      if (start === null) start = t;
+      var p = Math.min((t - start) / dur, 1);
+      var eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = Math.round(target * eased) + suffix;
+      if (p < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
 
   /* ---- Mobile drawer (accessible dialog) ---- */
   function focusables() {
@@ -81,20 +116,28 @@
     if (e.key === 'Escape') closeDrawer();
   });
 
-  /* ---- Scroll reveal ---- */
-  var reveals = document.querySelectorAll('.reveal');
+  /* ---- Scroll reveal + count-up triggers ---- */
+  var reveals = document.querySelectorAll('.reveal, .reveal-mask');
+  var counted = new WeakSet();
   if ('IntersectionObserver' in window) {
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('in');
-          io.unobserve(entry.target);
-        }
+        if (entry.isIntersecting) { entry.target.classList.add('in'); io.unobserve(entry.target); }
       });
     }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
     reveals.forEach(function (el) { io.observe(el); });
+
+    var cio = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting && !counted.has(entry.target)) {
+          counted.add(entry.target); countUp(entry.target); cio.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.6 });
+    document.querySelectorAll('[data-count]').forEach(function (el) { cio.observe(el); });
   } else {
     reveals.forEach(function (el) { el.classList.add('in'); });
+    document.querySelectorAll('[data-count]').forEach(function (el) { el.textContent = el.getAttribute('data-count') + (el.getAttribute('data-suffix') || ''); });
   }
 
   /* ---- Footer year ---- */
